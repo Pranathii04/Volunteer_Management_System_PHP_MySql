@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #007BFF;
+        }
+
+        select, button {
+            margin: 10px 0;
+            padding: 12px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form method="POST" id="LoginForm">
+            <!-- User type selection -->
+            <select name="user_type" id="userType">
+                <option value="-" selected disabled>Select User Type</option>
+                <option value="volunteer">Volunteer</option>
+                <option value="organization">Organization</option>
+            </select>
+
+            <!-- Login button -->
+            <button type="button" onclick="redirectToPage()">Login</button>
+        </form>
+        <p>Don't have an account? <a href="register1.php">Register</a></p>
+    </div>
+
+    <script>
+        function redirectToPage() {
+            var userType = document.getElementById('userType').value;
+            if (userType === 'volunteer') {
+                window.location.href = 'volunteer_login.php';
+            } else if (userType === 'organization') {
+                window.location.href = 'organization_login.php';
+            }
+        }
+    </script>
+</body>
+</html>
